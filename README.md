@@ -1,2 +1,2 @@
-# Mein erstes Repository
+# Gruppenarbeit BINA
  

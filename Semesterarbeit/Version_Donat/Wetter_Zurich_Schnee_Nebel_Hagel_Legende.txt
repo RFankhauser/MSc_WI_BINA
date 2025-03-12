@@ -1,0 +1,45 @@
+Bundesamt für Meteorologie und Klimatologie, MeteoSchweiz
+Operation Center 1
+Postfach 257
+8058 Zürich-Flughafen
+
+stn yyyyMMddHHmm
+
+stn Stationskürzel
+y   Jahr
+M   Monat
+d   Tag
+H   Stunde
+m   Minute
+
+Zeitangaben in UTC: 00:40 UTC = 02:40 Sommerzeit
+                              = 01:40 Winterzeit
+
+Zeitbezug bei Stundenwerten, sofern in der Parameterbeschreibung nicht anders vermerkt: HH  = (HH-1):01 - HH:00
+Beispiel: 13 = beinhaltet Messperiode von 12:01 bis 13:00 
+
+Fehlende Messwerte sind gekenntzeichnet mit '-'
+
+Qualitätsinformationen: Die Legende zu den Qualitätsinformationen ist zu finden unter: https://gate.meteoswiss.ch/idaweb/text/datenqualitaet_legende_de.pdf
+
+ 
+
+
+
+
+Stationen
+---------
+stn       Name                                 Parameter        Datenquelle                                        Länge/Breite             Koordinaten [km] Höhe ü. M. [m]
+KLO       Zürich / Kloten                      hns000d0         MeteoSchweiz                                       8°32'/47°29'             682710/259338    426
+KLO       Zürich / Kloten                      hto000d0         MeteoSchweiz                                       8°32'/47°29'             682710/259338    426
+KLO       Zürich / Kloten                      w3p002d0         MeteoSchweiz                                       8°32'/47°29'             682710/259338    426
+KLO       Zürich / Kloten                      w5p002d0         MeteoSchweiz                                       8°32'/47°29'             682710/259338    426
+
+Parameter
+---------
+          Einheit                              Beschreibung
+hns000d0  cm                                   Neuschneehöhe; Tagessumme 6 UTC - 6 UTC Folgetag
+hto000d0  cm                                   Schneehöhe; Morgenmessung von 6 UTC
+w3p002d0  y/n                                  Tag mit Hagel
+w5p002d0  y/n                                  Tag mit Nebel
+

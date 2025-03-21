@@ -30,15 +30,6 @@ Qualitätsinformationen: Die Legende zu den Qualitätsinformationen ist zu finden 
 Stationen
 ---------
 stn       Name                                 Parameter        Datenquelle                                        Länge/Breite             Koordinaten [km] Höhe ü. M. [m]
-PZH       Zürich                               khpoacd0         MeteoSchweiz                                       8°34'/47°23'             685121/248092    558
-PZH       Zürich                               fu3010h1         unknown                                            8°34'/47°23'             685121/248092    558
-PZH       Zürich                               gre000h0         unknown                                            8°34'/47°23'             685121/248092    558
-PZH       Zürich                               tre200h0         unknown                                            8°34'/47°23'             685121/248092    558
-PZH       Zürich                               rre150h0         unknown                                            8°34'/47°23'             685121/248092    558
-PZH       Zürich                               fu3010h0         unknown                                            8°34'/47°23'             685121/248092    558
-PZH       Zürich                               hto000hs         unknown                                            8°34'/47°23'             685121/248092    558
-PZH       Zürich                               sre000h0         unknown                                            8°34'/47°23'             685121/248092    558
-PZH       Zürich                               w5p002d0         unknown                                            8°34'/47°23'             685121/248092    558
 NABZUE    Zürich / Kaserne                     khpoacd0         unknown                                            8°32'/47°23'             682450/247990    408
 NABZUE    Zürich / Kaserne                     fu3010h1         Bundesamt für Umwelt                               8°32'/47°23'             682450/247990    408
 NABZUE    Zürich / Kaserne                     gre000h0         Bundesamt für Umwelt                               8°32'/47°23'             682450/247990    408
@@ -48,26 +39,13 @@ NABZUE    Zürich / Kaserne                     fu3010h0         Bundesamt für Um
 NABZUE    Zürich / Kaserne                     hto000hs         unknown                                            8°32'/47°23'             682450/247990    408
 NABZUE    Zürich / Kaserne                     sre000h0         unknown                                            8°32'/47°23'             682450/247990    408
 NABZUE    Zürich / Kaserne                     w5p002d0         unknown                                            8°32'/47°23'             682450/247990    408
-KLO       Zürich / Kloten                      khpoacd0         unknown                                            8°32'/47°29'             682710/259338    426
-KLO       Zürich / Kloten                      fu3010h1         MeteoSchweiz                                       8°32'/47°29'             682710/259338    426
-KLO       Zürich / Kloten                      gre000h0         MeteoSchweiz                                       8°32'/47°29'             682710/259338    426
-KLO       Zürich / Kloten                      tre200h0         MeteoSchweiz                                       8°32'/47°29'             682710/259338    426
-KLO       Zürich / Kloten                      rre150h0         MeteoSchweiz                                       8°32'/47°29'             682710/259338    426
-KLO       Zürich / Kloten                      fu3010h0         MeteoSchweiz                                       8°32'/47°29'             682710/259338    426
-KLO       Zürich / Kloten                      hto000hs         MeteoSchweiz                                       8°32'/47°29'             682710/259338    426
-KLO       Zürich / Kloten                      sre000h0         MeteoSchweiz                                       8°32'/47°29'             682710/259338    426
-KLO       Zürich / Kloten                      w5p002d0         MeteoSchweiz                                       8°32'/47°29'             682710/259338    426
 
 Parameter
 ---------
           Einheit                              Beschreibung
-khpoacd0  No/m³                                Gräser; mittlere tägliche Pollenkonzentration
 fu3010h1  km/h                                 Böenspitze (Sekundenböe); Stundenmaximum in km/h
 gre000h0  W/m²                                 Globalstrahlung; Stundenmittel
 tre200h0  °C                                   Lufttemperatur 2 m über Boden; Stundenmittel
 rre150h0  mm                                   Niederschlag; Stundensumme
 fu3010h0  km/h                                 Windgeschwindigkeit skalar; Stundenmittel in km/h
-hto000hs  cm                                   Schneehöhe; stündlicher Momentanwert
-sre000h0  min                                  Sonnenscheindauer; Stundensumme
-w5p002d0  y/n                                  Tag mit Nebel
 

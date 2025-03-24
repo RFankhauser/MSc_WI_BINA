@@ -5,3 +5,5 @@ uv.lock
 Verkehrs_Daten_2024.csv
 __pycache__/
 *.pyc
+Verkehrsdaten_daily.csv
+Verkehrsdaten_2024.csv

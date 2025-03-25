@@ -7,3 +7,4 @@ __pycache__/
 *.pyc
 Verkehrsdaten_daily.csv
 Verkehrsdaten_2024.csv
+2024-01-01_istdaten.csv

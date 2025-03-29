@@ -1,0 +1,1 @@
+https://models.geo.admin.ch/BAV/HaltestellenOeV_Katalog_V2_1.xml

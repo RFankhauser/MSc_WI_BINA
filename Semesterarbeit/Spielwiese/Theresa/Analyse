@@ -31,3 +31,38 @@ df = pd.read_csv('/content/deine_datei.csv')
 
 # Zeige die ersten paar Zeilen der Datei an
 print(df.head(10))
+
+from google.colab import drive
+drive.mount('/content/drive')
+     
+Mounted at /content/drive
+
+import gdown
+
+# Die Datei-ID aus dem Google Drive-Link
+file_id = '1VB_9wbmdneUo32XGGDNULnUZje4HsX8Q'
+destination = '/content/deine_datei.csv'
+
+# Datei herunterladen
+gdown.download(f'https://drive.google.com/uc?id={file_id}', destination, quiet=False)
+     
+Downloading...
+From (original): https://drive.google.com/uc?id=1VB_9wbmdneUo32XGGDNULnUZje4HsX8Q
+From (redirected): https://drive.google.com/uc?id=1VB_9wbmdneUo32XGGDNULnUZje4HsX8Q&confirm=t&uuid=72372d57-b035-4fd8-8e0a-726833ed8081
+To: /content/deine_datei.csv
+100%|██████████| 1.90G/1.90G [00:19<00:00, 99.7MB/s]
+'/content/deine_datei.csv'
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+from tqdm import tqdm
+     
+
+# Lade die heruntergeladene CSV-Datei
+df = pd.read_csv('/content/deine_datei.csv')
+
+# Zeige die ersten paar Zeilen der Datei an
+print(df.head(10))
+

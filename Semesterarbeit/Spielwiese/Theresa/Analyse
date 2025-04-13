@@ -59,21 +59,42 @@ import matplotlib.pyplot as plt
 import numpy as np
 from tqdm import tqdm
      
-
 # Lade die heruntergeladene CSV-Datei
 df = pd.read_csv('/content/deine_datei.csv')
 
 # Zeige die ersten paar Zeilen der Datei an
 print(df.head(10))
 
-# Analyse Verspätungen und Schnee
+# 🕒 Datum umwandeln und Monat extrahieren
+df['ABFAHRTSZEIT'] = pd.to_datetime(df['ABFAHRTSZEIT'], errors='coerce')
+df['Monat'] = df['ABFAHRTSZEIT'].dt.month
+
+# 📊 Durchschnittliche Verspätung pro Monat berechnen
+df_monate = df.groupby('Monat')['VERSPAETUNG [s]'].mean().reset_index()
+df_monate['Monat'] = df_monate['Monat'].apply(lambda x: calendar.month_abbr[x])
+
+# 📈 Plot: Durchschnittliche Verspätung pro Monat
 plt.figure(figsize=(10,5))
-sns.scatterplot(data=df, x='Schneemenge_cm', y='Verspaetung_min')
-plt.title("Verspätung in Abhängigkeit von der Schneemenge")
-plt.xlabel("Schneemenge [cm]")
-plt.ylabel("Verspätung [min]")
+sns.barplot(data=df_monate, x='Monat', y='VERSPAETUNG [s]', palette='Blues_d')
+plt.title("Durchschnittliche Verspätung pro Monat")
+plt.xlabel("Monat")
+plt.ylabel("Verspätung [s]")
 plt.show()
 
-#Verspätungen Monatlich
+# ❄️ Plot: Verspätung vs. Neuschneehöhe
+plt.figure(figsize=(10,5))
+sns.scatterplot(data=df, x='NEUSCHNEEHOEHE [cm]', y='VERSPAETUNG [s]')
+plt.title("Verspätung in Abhängigkeit von Neuschnee")
+plt.xlabel("Neuschneehöhe [cm]")
+plt.ylabel("Verspätung [s]")
+plt.show()
+
+# 🧊 Plot: Verspätung vs. Gesamtschneehöhe (Morgenmessung)
+plt.figure(figsize=(10,5))
+sns.scatterplot(data=df, x='SCHNEHOEHE_MORGENMESSUNG_6_UTC [cm]', y='VERSPAETUNG [s]')
+plt.title("Verspätung in Abhängigkeit von Gesamtschneehöhe")
+plt.xlabel("Schneehöhe [cm]")
+plt.ylabel("Verspätung [s]")
+plt.show()
 
 

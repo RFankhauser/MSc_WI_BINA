@@ -66,3 +66,14 @@ df = pd.read_csv('/content/deine_datei.csv')
 # Zeige die ersten paar Zeilen der Datei an
 print(df.head(10))
 
+# Analyse Verspätungen und Schnee
+plt.figure(figsize=(10,5))
+sns.scatterplot(data=df, x='Schneemenge_cm', y='Verspaetung_min')
+plt.title("Verspätung in Abhängigkeit von der Schneemenge")
+plt.xlabel("Schneemenge [cm]")
+plt.ylabel("Verspätung [min]")
+plt.show()
+
+#Verspätungen Monatlich
+
+

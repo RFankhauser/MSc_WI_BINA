@@ -65,15 +65,15 @@ df = pd.read_csv('/content/deine_datei.csv')
 # Zeige die ersten paar Zeilen der Datei an
 print(df.head(10))
 
-# 🕒 Datum umwandeln und Monat extrahieren
+# Datum umwandeln und Monat extrahieren
 df['ABFAHRTSZEIT'] = pd.to_datetime(df['ABFAHRTSZEIT'], errors='coerce')
 df['Monat'] = df['ABFAHRTSZEIT'].dt.month
 
-# 📊 Durchschnittliche Verspätung pro Monat berechnen
+# Durchschnittliche Verspätung pro Monat berechnen
 df_monate = df.groupby('Monat')['VERSPAETUNG [s]'].mean().reset_index()
 df_monate['Monat'] = df_monate['Monat'].apply(lambda x: calendar.month_abbr[x])
 
-# 📈 Plot: Durchschnittliche Verspätung pro Monat
+# Plot: Durchschnittliche Verspätung pro Monat
 plt.figure(figsize=(10,5))
 sns.barplot(data=df_monate, x='Monat', y='VERSPAETUNG [s]', palette='Blues_d')
 plt.title("Durchschnittliche Verspätung pro Monat")
@@ -81,7 +81,7 @@ plt.xlabel("Monat")
 plt.ylabel("Verspätung [s]")
 plt.show()
 
-# ❄️ Plot: Verspätung vs. Neuschneehöhe
+# Plot: Verspätung vs. Neuschneehöhe
 plt.figure(figsize=(10,5))
 sns.scatterplot(data=df, x='NEUSCHNEEHOEHE [cm]', y='VERSPAETUNG [s]')
 plt.title("Verspätung in Abhängigkeit von Neuschnee")
@@ -89,7 +89,7 @@ plt.xlabel("Neuschneehöhe [cm]")
 plt.ylabel("Verspätung [s]")
 plt.show()
 
-# 🧊 Plot: Verspätung vs. Gesamtschneehöhe (Morgenmessung)
+# Plot: Verspätung vs. Gesamtschneehöhe (Morgenmessung)
 plt.figure(figsize=(10,5))
 sns.scatterplot(data=df, x='SCHNEHOEHE_MORGENMESSUNG_6_UTC [cm]', y='VERSPAETUNG [s]')
 plt.title("Verspätung in Abhängigkeit von Gesamtschneehöhe")
@@ -97,4 +97,60 @@ plt.xlabel("Schneehöhe [cm]")
 plt.ylabel("Verspätung [s]")
 plt.show()
 
+# ===========================================
+# Verspätung in Abhängigkeit der Windgeschwindigkeit
+# Ziel: Herausfinden, ob starke Winde die Verspätung beeinflussen
+# ===========================================
 
+plt.figure(figsize=(10,5))
+sns.scatterplot(data=df, x='WINDGESCHWINDIGKEIT [kmh]', y='VERSPAETUNG [s]')
+plt.title("Verspätung in Abhängigkeit von Windgeschwindigkeit")
+plt.xlabel("Windgeschwindigkeit [km/h]")
+plt.ylabel("Verspätung [s]")
+plt.show()
+
+# ===========================================
+# 🌫️ Verspätung bei Wetterextremen: Hagel & Nebel
+# Ziel: Durchschnitts-Verspätung bei besonderen Wetterlagen
+# ===========================================
+
+# Durchschnitts-Verspätung bei Hagel, Nebel, und ohne beides
+hagel = df[df['TAG_MIT_HAGEL'] == 1]['VERSPAETUNG [s]'].mean()
+nebel = df[df['TAG_MIT_NEBEL'] == 1]['VERSPAETUNG [s]'].mean()
+normal = df[(df['TAG_MIT_HAGEL'] == 0) & (df['TAG_MIT_NEBEL'] == 0)]['VERSPAETUNG [s]'].mean()
+
+# Ergebnisse ausgeben
+print(f"Ø Verspätung ohne Extremwetter: {normal:.2f} s")
+print(f"Ø Verspätung bei Hagel: {hagel:.2f} s")
+print(f"Ø Verspätung bei Nebel: {nebel:.2f} s")
+
+# Diagramm: Vergleich
+plt.figure(figsize=(8,5))
+plt.bar(['Normal', 'Hagel', 'Nebel'], [normal, hagel, nebel], color=['green', 'red', 'gray'])
+plt.title("Durchschnittliche Verspätung bei Extremwetter")
+plt.ylabel("Verspätung [s]")
+plt.show()
+
+# ===========================================
+# 📊 Monatsvergleich: Wettertrends & Verspätung
+# Ziel: Wie verändern sich Verspätung, Temperatur und Schneemenge über das Jahr?
+# ===========================================
+
+# Mittelwerte je Monat berechnen
+monatlich = df.groupby('Monat')[['VERSPAETUNG [s]', 'TEMPERATUR [°C]', 'NEUSCHNEEHOEHE [cm]']].mean().reset_index()
+monatlich['Monat_name'] = monatlich['Monat'].apply(lambda x: calendar.month_abbr[x])
+
+# Diagramm erstellen mit zwei Y-Achsen
+fig, ax1 = plt.subplots(figsize=(12,6))
+
+# Verspätung und Temperatur auf erster Achse
+sns.lineplot(data=monatlich, x='Monat_name', y='VERSPAETUNG [s]', label='Verspätung [s]', ax=ax1)
+sns.lineplot(data=monatlich, x='Monat_name', y='TEMPERATUR [°C]', label='Temperatur [°C]', ax=ax1)
+
+# Zweite Y-Achse für Schnee
+ax2 = ax1.twinx()
+sns.lineplot(data=monatlich, x='Monat_name', y='NEUSCHNEEHOEHE [cm]', label='Neuschnee [cm]', ax=ax2, color='blue', linestyle='dashed')
+
+# Achsentitel & Legenden
+ax1.set_xlabel("Monat")
+ax1.set_ylabel("Verspätung")

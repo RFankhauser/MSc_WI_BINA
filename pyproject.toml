@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "calplot>=0.1.7.5",
     "ipykernel>=6.29.5",
     "keplergl>=0.3.7",
     "matplotlib>=3.10.1",

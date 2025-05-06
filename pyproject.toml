@@ -16,5 +16,6 @@ dependencies = [
     "pyproj>=3.7.1",
     "scikit-learn>=1.6.1",
     "seaborn>=0.13.2",
+    "statsmodels>=0.14.4",
     "tqdm>=4.67.1",
 ]

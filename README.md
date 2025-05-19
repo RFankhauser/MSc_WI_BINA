@@ -13,12 +13,7 @@
     uv synch
     ```
 
- 3. Installiere nbstripout für die automatische Bereinigung der .ipynb (Jupiter Notebook) Dateien 
-    - Für alle .ipynb Dateien
-    ```
-    uv run nbstripout --install
-    ```
-    - Nur für das aktuelle Repository
-    ```
-    uv run nbstripout --install --global
-    ```
+ 3. Lade folgende Dokumente aus Google Drive in Ordner "Main" des lokalen Environment
+   - Datensatz_komplett.csv
+   - Verkehrsdaten_2024.csv
+   - Verkehrsdaten_daily.csv

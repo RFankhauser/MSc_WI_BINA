@@ -10,7 +10,6 @@
 ## Vorbereitung für eine erfolgreiche Ausführung des Codes
 
  1. Lade folgende CSV-Files aus dem Google Drive Verzeichnis (Namen müssen unverändert bleiben)
-   - Datensatz_komplett.csv
    - Verkehrsdaten_2024.csv
    - Verkehrsdaten_daily.csv
 

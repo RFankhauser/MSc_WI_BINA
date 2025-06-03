@@ -15,7 +15,7 @@
 
 2. Lade die Dateien in den "Main" Ordner in deinem lokalen Repository "MSc_WI_BINA".
 
-3. Lade alle benötigten Packages herunter -> wenn möglich mit uv (Package Manager), ansosnten manuell. Alle Packages inkl. Version sind im File .python-version und pyproject.toml zu finden.
+3. Lade alle benötigten Packages herunter -> wenn möglich mit uv (Package Manager), ansonsten manuell. Alle Packages inkl. Version sind im File .python-version und pyproject.toml zu finden.
 
 Zur Info: Der Code wurde expizit für die Ausführung in VSC konzipiert. Eine Ausführung mit Google Collab wird aufgrund der extern geladenen und sehr grossen csv Files nicht funktionieren.
 
